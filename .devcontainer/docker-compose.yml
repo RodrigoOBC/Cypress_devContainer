@@ -1,0 +1,17 @@
+version: "3.8"
+services:
+  cypress:
+    build: 
+      context: ..
+      dockerfile: .devcontainer/Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ..:/app
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/.X11-unix:/tmp/.X11-unix # Acessa o bash do container
+    environment:
+      DISPLAY: ${DISPLAY}
+      NVM_DIR: /root/.nvm
+    command: /bin/bash -c "sleep infinity"
+    tty: true
