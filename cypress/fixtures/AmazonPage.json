@@ -1,0 +1,21 @@
+{
+  "__comment": "This is a fixture file for Amazon page - HomePage",
+  "url": "https://www.amazon.com.br/",
+  "SearchField": "[id=\"twotabsearchtextbox\"]",
+  "SearchButton": "[id=\"nav-search-submit-button\"]",
+  "ProductTarget": "Batman - A Corte das Corujas",
+  "titlePage": "Amazon.com.br | Tudo pra você, de A a Z.",
+  "boxResults": "[data-component-type=\"s-search-result\"]",
+  "TitleResult": "[class=\"a-size-base-plus a-color-base a-text-normal\"]",
+  "__comment2": "This is a fixture file for Amazon page - ProductPage ",
+  "ProductTitle": "[id=\"productTitle\"]",
+  "ProductDesc": "[id=\"bookDescription_feature_div\"]",
+  "ProductValue": "[id=\"price\"]",
+  "addCartButton": "[id=\"addToCart_feature_div\"]",
+  "BuyNow": "[id=\"buyNow\"]",
+  "__comment3": "This is a fixture file for Amazon page - CartPage",
+  "CarTitle": "[id=\"NATC_SMART_WAGON_CONF_MSG_SUCCESS\"]",
+  "closeBuy": "[id=\"sc-buy-box-ptc-button\"] [class=\"sc-with-multicart\"]",
+  "goToCart": "[data-csa-c-content-id=\"sw-gtc_CONTENT\"]",
+  "ProductTitleCar": "[data-a-max-rows=\"2\"] [class=\"a-truncate-full a-offscreen\"]"
+}
