@@ -3,7 +3,7 @@
   "url": "https://www.amazon.com.br/",
   "SearchField": "[id=\"twotabsearchtextbox\"]",
   "SearchButton": "[id=\"nav-search-submit-button\"]",
-  "ProductTarget": "Batman - A Corte das Corujas",
+  "ProductsTarget": ["Batman - A Corte das Corujas", "Batman - O Cavaleiro das Trevas"],
   "titlePage": "Amazon.com.br | Tudo pra você, de A a Z.",
   "boxResults": "[data-component-type=\"s-search-result\"]",
   "TitleResult": "[class=\"a-size-base-plus a-color-base a-text-normal\"]",

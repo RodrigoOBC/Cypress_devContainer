@@ -5,10 +5,10 @@ class HomePageAmazon {
     goToHomePage() {
         cy.visit(ObjectsPage.url)
     }
-    
+
     fillSearchBar(product) {
         let searchBar = cy.get(ObjectsPage.SearchField)
-        searchBar.type(product)
+        searchBar.type(product, { delay: 0 })
     }
 
     clickSearchButton() {
@@ -26,11 +26,19 @@ class HomePageAmazon {
         return productFound
     }
 
-    async validateSearchProduct(productName) {
+    validateSearchProduct(productName) {
         this.searchProduct(productName)
         let boxResult = this.getBoxsResult()
 
         boxResult.get(ObjectsPage.TitleResult).first().should('contain.text', productName)
+
+    }
+
+    clickProduct() {
+
+        let productFound = this.getBoxsResult()
+        let boxResult = productFound.get(ObjectsPage.TitleResult).first()
+        boxResult.click()
 
     }
 }
