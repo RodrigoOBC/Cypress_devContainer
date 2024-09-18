@@ -21,7 +21,27 @@ describe('Product Feature', () => {
  
   })
 
+  describe('Product\'S page', () => {
+
+    for(let projectTarget of ObjectsPage.ProductsTarget){
+      it.skip(`Validate ${projectTarget}'s page`, () => {
+        HomePage.validateSearchProduct(projectTarget)
+        HomePage.clickProduct()
+      })
+    }
  
+  })
+
+  describe('Validate Cart', () => {
+
+    for(let projectTarget of ObjectsPage.ProductsTarget){
+      it.skip(`Add ${projectTarget} to cart`, () => {
+        HomePage.validateSearchProduct(projectTarget)
+        HomePage.clickProduct()
+      })
+    }
+ 
+  })
   
 
 })
