@@ -12,7 +12,7 @@ class HomePageAmazon {
     }
 
     clickSearchButton() {
-        let searchButton = cy.get(ObjectsPage.SearchButton)
+        let searchButton = cy.get(ObjectsPage.SearchButton,{timeout: 10000})
         searchButton.click()
     }
 

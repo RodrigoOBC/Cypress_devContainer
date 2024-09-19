@@ -1,7 +1,9 @@
 const { HomePageAmazon } = require('../support/Pages/homePageAmazon')
+const { HomePageAmazon } = require('../support/Pages/ProductPageAmazon')
 const ObjectsPage = require('../fixtures/AmazonPage.json')
 
 const HomePage = new HomePageAmazon()
+
 
 describe('Product Feature', () => {
 
@@ -14,7 +16,7 @@ describe('Product Feature', () => {
   describe('Search for a product', () => {
 
     for(let projectTarget of ObjectsPage.ProductsTarget){
-      it(`Search for the product  ${projectTarget} with sucessful`, () => {
+      it.skip(`Search for the product  ${projectTarget} with sucessful`, () => {
         HomePage.validateSearchProduct(projectTarget)
       })
     }
@@ -24,9 +26,10 @@ describe('Product Feature', () => {
   describe('Product\'S page', () => {
 
     for(let projectTarget of ObjectsPage.ProductsTarget){
-      it.skip(`Validate ${projectTarget}'s page`, () => {
+      it(`Validate ${projectTarget}'s page`, () => {
         HomePage.validateSearchProduct(projectTarget)
         HomePage.clickProduct()
+
       })
     }
  
