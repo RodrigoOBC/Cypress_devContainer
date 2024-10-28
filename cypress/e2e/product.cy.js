@@ -1,13 +1,13 @@
-const { HomePageAmazon } = require('../support/Pages/homePageAmazon')
-const ObjectsPage = require('../fixtures/AmazonPage.json')
+const { HomePage } = require('../support/Pages/homePage')
+const ObjectsPage = require('../fixtures/ElementPage.json')
 
-const HomePage = new HomePageAmazon()
+const homePage = new HomePage()
 
 describe('Product Feature', () => {
 
   beforeEach(() => {
 
-    HomePage.goToHomePage()
+    homePage.goToHomePage()
 
   });
 
@@ -15,7 +15,7 @@ describe('Product Feature', () => {
 
     for(let projectTarget of ObjectsPage.ProductsTarget){
       it(`Search for the product  ${projectTarget} with sucessful`, () => {
-        HomePage.validateSearchProduct(projectTarget)
+        HomePage.homePage(projectTarget)
       })
     }
  

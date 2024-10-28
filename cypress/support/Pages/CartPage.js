@@ -1,4 +1,4 @@
 // TODO criar page object para a página de carrinho do Amazon
-class CartPageAmazon {
+class CartPage {
   // Add class content here
 }
