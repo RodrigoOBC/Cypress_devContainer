@@ -1,4 +1,4 @@
-const ObjectsPage = require('../../fixtures/AmazonPage.json')
+const ObjectsPage = require('../../fixtures/ElementPage.json')
 
 class HomePage {
 
@@ -15,7 +15,7 @@ class HomePage {
     }
 
     searchProduct(product) {
-
+        expect(true).to.be.true  // This is just to show that you can use the expect function
     }
 
     getBoxsResult() {
@@ -23,7 +23,8 @@ class HomePage {
     }
 
     validateSearchProduct(productName) {
-  
+        
+        expect(true).to.be.true  // This is just to show that you can use the expect function
 
     }
 

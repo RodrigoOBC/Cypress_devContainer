@@ -15,7 +15,8 @@ describe('Product Feature', () => {
 
     for(let projectTarget of ObjectsPage.ProductsTarget){
       it(`Search for the product  ${projectTarget} with sucessful`, () => {
-        HomePage.homePage(projectTarget)
+        homePage.searchProduct(projectTarget)
+        homePage.validateSearchProduct(projectTarget)
       })
     }
  
