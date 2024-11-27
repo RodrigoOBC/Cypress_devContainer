@@ -6,33 +6,27 @@ class HomePage {
         cy.visit(ObjectsPage.url)
     }
 
-    fillSearchBar(product) {
-
+    getSearchInput() {
+        return cy.get(ObjectsPage.SearchField)
     }
 
-    clickSearchButton() {
-
+    getSearchButton() {
+        return cy.get(ObjectsPage.SearchButton)
     }
 
     searchProduct(product) {
-        expect(true).to.be.true  // This is just to show that you can use the expect function
+        this.getSearchInput().type(product)
+        this.getSearchButton().click()
     }
 
-    getBoxsResult() {
-
+    validateSearchProduct(product) {
+        cy.get(ObjectsPage.targetProduct).filter(`:contains("${product}")`).should('have.length.greaterThan', 1);
     }
 
-    validateSearchProduct(productName) {
-        
-        expect(true).to.be.true  // This is just to show that you can use the expect function
-
+    clickOnProduct(product) {
+        cy.get(ObjectsPage.targetProduct).filter(`:contains("${product}")`).second().click()
     }
 
-    clickProduct() {
-
-    
-
-    }
 }
 
 module.exports = { HomePage: HomePage }

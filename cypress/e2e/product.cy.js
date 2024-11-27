@@ -11,6 +11,10 @@ describe('Product Feature', () => {
 
   });
 
+  it('Validate the title of the page', () => {
+    cy.title().should('eq', 'My Shop')
+  })
+
   describe('Search for a product', () => {
 
     for(let projectTarget of ObjectsPage.ProductsTarget){
@@ -19,6 +23,8 @@ describe('Product Feature', () => {
         homePage.validateSearchProduct(projectTarget)
       })
     }
+
+    
  
   })
 

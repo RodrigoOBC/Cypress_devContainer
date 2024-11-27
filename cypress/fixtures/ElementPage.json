@@ -4,5 +4,6 @@
   "titlePage": "My Shop",
   "SearchField": "[id=\"search_query_top\"]",
   "SearchButton": "[name=\"submit_search\"]",
+  "targetProduct": ".product-name",
   "ProductsTarget": ["Faded Short Sleeve T-shirts", "Printed Dress"]
 }
