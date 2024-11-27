@@ -1,23 +1,74 @@
+const ObjectsPage = require('../../fixtures/ElementProductPage.json')
 
-// TODO criar page object para a página de produto do Amazon
-class ProductPageAmazon {
-    getProductName(){}
+class ProductPage {
+    getProductName() {
+        return cy.get(ObjectsPage.productName)
+    }
 
-    getProductPrice(){}
+    getProductPrice() {
+        return cy.get(ObjectsPage.productPrice)
+    }
 
-    getProductRating(){}
+    getProductDescription() {
+        return cy.get(ObjectsPage.productDescription)
+    }
 
-    getProductDescription(){}
+    getProductSize() {
+        return cy.contains('Size').parent();
+    }
 
-    getProductSize(){}
+    getProductColor() {
+        return cy.get(ObjectsPage.colorOption)
+    }
 
-    getProductColor(){}
+    getProductQuantity() {
+        return cy.get(ObjectsPage.countProduct)
+    }
 
-    getProductQuantity(){}
+    getAddToCartButton() {
+        return cy.get(ObjectsPage.addCartButton)
+    }
 
-    getAddToCartButton(){}
+    selectProductSize(size) {
+        cy.get('select').select(size);
+    }
 
-    selectProductSize(){}
+    selectProductColor(color){
+        let colorOption = this.getProductColor();
+        colorOption.contains(color).click();
+   
+    }
 
-    selectProductColor(){}
+    setNumberOfProduct(numberOfProduct) {
+       let quantityProductElement =  this.getProductQuantity()
+        quantityProductElement.clear();
+        quantityProductElement.type(numberOfProduct)
+    }
+
+    clickOnAddToCartButton() {
+        this.getAddToCartButton().click()
+    }
+
+    validateProductDetails(product) {
+
+    let productName = this.getProductName();
+      let productPrice = this.getProductPrice();
+      let productSize = this.getProductSize();
+      let productColor = this.getProductColor();
+
+        productName.should('have.text', product.name)
+        productPrice.should('have.text', product.price)
+        
+        productSize.should('be.visible');
+        productColor.should('be.visible');
+    }
+
+    validateProductAddedToCart() {
+       let successMessag =  cy.get(this.ObjectsPage.sucessMessage)
+       successMessag.should('be.visible')
+       successMessag.and('have.text', this.ObjectsPage.sucessMessage);
+    }
+
 }
+
+module.exports = { ProductPage: ProductPage }

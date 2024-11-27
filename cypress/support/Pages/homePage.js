@@ -24,7 +24,7 @@ class HomePage {
     }
 
     clickOnProduct(product) {
-        cy.get(ObjectsPage.targetProduct).filter(`:contains("${product}")`).second().click()
+        cy.get(ObjectsPage.targetProduct).filter(`:contains("${product}")`).eq(1).click()
     }
 
 }

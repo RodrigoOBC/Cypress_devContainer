@@ -1,7 +1,9 @@
 const { HomePage } = require('../support/Pages/homePage')
+const { ProductPage } = require('../support/Pages/ProductPage')
 const ObjectsPage = require('../fixtures/ElementPage.json')
 
 const homePage = new HomePage()
+const productPage = new ProductPage()
 
 describe('Product Feature', () => {
 
@@ -28,7 +30,13 @@ describe('Product Feature', () => {
  
   })
 
- 
+  it('should open the product page', () => {
+     const productsTarget = "Blouse"
+     homePage.searchProduct(productsTarget);
+    homePage.clickOnProduct(productsTarget);
+     productPage.validateProductDetails(productsTarget,'$27');
+
+})
   
 
 })
