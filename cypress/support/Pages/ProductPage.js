@@ -80,10 +80,25 @@ class ProductPage {
         this.setNumberOfProduct(product.quantity);
     }
 
-    validateProductAddedToCart() {
+    clickOnProceedToCheckoutButton() {
+        cy.pause()
+        cy.contains('Proceed to checkout').should('be.visible').click()
+    }
+
+    validateProductAddedToCartSucessMessage() {
         let successMessag = cy.contains(ObjectsPage.sucessMessage)
         successMessag.should('be.visible')
         successMessag.should('include.text', ObjectsPage.sucessMessage);
+    }
+
+    validateProductAddedToCart(product){
+       
+        // let productName = this.getProductName();
+        // productName.should('be.visible').and('have.text', product.name);
+        // let productPrice = this.getProductPrice();
+        // productPrice.should('be.visible').and('have.text', product.price);
+        // let productQuantity = this.getProductQuantity();
+        // productQuantity.should('be.visible').and('have.text', product.quantity);
     }
 
 }
