@@ -1,3 +1,4 @@
+require('dotenv').config()
 module.exports = {
   e2e: {
     setupNodeEvents(on, config) {
@@ -8,5 +9,9 @@ module.exports = {
         return launchOptions;
       });
     },
+  },
+  env: {
+    MY_USE: process.env.EMAIL,                      // merge here with spread operator
+    MY_PASS: process.env.SENHA                      // merge here with spread operator
   },
 };
