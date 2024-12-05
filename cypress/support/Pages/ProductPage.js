@@ -80,7 +80,11 @@ class ProductPage {
         this.setNumberOfProduct(product.quantity);
     }
 
-    validateProductAddedToCart() {
+    clickOnProceedToCheckoutButton() {
+        cy.contains('Proceed to checkout').should('be.visible').click()
+    }
+
+    validateProductAddedToCartSucessMessage() {
         let successMessag = cy.contains(ObjectsPage.sucessMessage)
         successMessag.should('be.visible')
         successMessag.should('include.text', ObjectsPage.sucessMessage);

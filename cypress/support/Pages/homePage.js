@@ -27,6 +27,10 @@ class HomePage {
         cy.get(ObjectsPage.targetProduct).filter(`:contains("${product}")`).eq(1).click()
     }
 
+    clickOnSignInButton() {
+        cy.get(ObjectsPage.signInButton).click()
+    }
+
 }
 
 module.exports = { HomePage: HomePage }

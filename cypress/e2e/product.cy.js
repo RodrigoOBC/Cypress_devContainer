@@ -38,14 +38,18 @@ describe('Product Feature', () => {
 
   })
 
-  it('should add a product to the cart', () => {
+  it.only('should add a product to the cart', () => {
     const productsTarget = {name:"Printed Summer Dress", price:"$29",size:"M",color:"Black",quantity:"2"}
+
     homePage.searchProduct(productsTarget.name);
     homePage.clickOnProduct(productsTarget.name);
     productPage.configureItemsToCart(productsTarget);
     productPage.clickOnAddToCartButton();
-    productPage.validateProductAddedToCart();
+    productPage.validateProductAddedToCartSucessMessage();
+    
   })
+
+
 
 })
 
