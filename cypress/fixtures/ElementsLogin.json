@@ -1,0 +1,7 @@
+{
+    "password": "[id=\"passwd\"]",
+    "email": "[id=\"email\"]",
+    "singInButton": "[id=\"SubmitLogin\"]",
+    "alertMessage": "[class=\"alert alert-danger\"]"
+    
+}
