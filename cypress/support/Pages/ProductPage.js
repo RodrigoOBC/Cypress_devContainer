@@ -81,7 +81,6 @@ class ProductPage {
     }
 
     clickOnProceedToCheckoutButton() {
-        cy.pause()
         cy.contains('Proceed to checkout').should('be.visible').click()
     }
 
