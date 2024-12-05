@@ -19,25 +19,33 @@ describe('Product Feature', () => {
 
   describe('Search for a product', () => {
 
-    for(let projectTarget of ObjectsPage.ProductsTarget){
+    for (let projectTarget of ObjectsPage.ProductsTarget) {
       it(`Search for the product  ${projectTarget} with sucessful`, () => {
         homePage.searchProduct(projectTarget)
         homePage.validateSearchProduct(projectTarget)
       })
     }
 
-    
- 
+
+
   })
 
   it('should open the product page', () => {
-     const productsTarget = "Blouse"
-     homePage.searchProduct(productsTarget);
-    homePage.clickOnProduct(productsTarget);
-     productPage.validateProductDetails(productsTarget,'$27');
+    const productsTarget = {name:"Blouse", price:"$27"}
+    homePage.searchProduct(productsTarget.name);
+    homePage.clickOnProduct(productsTarget.name);
+    productPage.validateProductDetails(productsTarget);
 
-})
-  
+  })
+
+  it.only('should add a product to the cart', () => {
+    const productsTarget = {name:"Printed Summer Dress", price:"$29",size:"M",color:"Black",quantity:"2"}
+    homePage.searchProduct(productsTarget.name);
+    homePage.clickOnProduct(productsTarget.name);
+    productPage.configureItemsToCart(productsTarget);
+    productPage.clickOnAddToCartButton();
+    productPage.validateProductAddedToCart();
+  })
 
 })
 

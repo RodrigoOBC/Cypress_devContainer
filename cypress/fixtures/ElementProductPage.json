@@ -4,8 +4,9 @@
     "productPrice": "[itemprop=\"price\"]",
     "productDescription": "[itemprop=\"description\"]",
     "productImage": "[itemprop=\"image\"]",
-    "addCartButton": "[data-test=\"add-to-cart\"]",
+    "addCartButton": "[type=\"submit\"]",
     "colorOption": "[id=\"color_to_pick_list\"]",
+    "sizeOption": "[name=\"group_1\"]",
     "countProduct": "[id=\"quantity_wanted\"]",
     "sucessMessage": "Product successfully added to your shopping cart"
 

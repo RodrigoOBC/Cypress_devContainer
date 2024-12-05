@@ -26,22 +26,39 @@ class ProductPage {
     }
 
     getAddToCartButton() {
-        return cy.get(ObjectsPage.addCartButton)
+        return cy.contains('Add to cart')
     }
 
     selectProductSize(size) {
-        cy.get('select').select(size);
+        switch (size) {
+            case "L":
+                cy.get(ObjectsPage.sizeOption).select('3');
+                break;
+            case "M":
+                cy.get(ObjectsPage.sizeOption).select('2');
+                break;
+            case "S":
+                cy.get(ObjectsPage.sizeOption).select('1');
+                break;
+        
+            default:
+                break;
+        }
+        
     }
 
-    selectProductColor(color){
-        let colorOption = this.getProductColor();
-        colorOption.contains(color).click();
-   
+    selectProductColor(color) {
+        // Need click another color to after click in the color that you want
+        cy.get(`[name="${color}"]`).dblclick(); 
+        cy.get('#color_13').click(); 
+        cy.get(`[name="${color}"]`).click(); 
+
     }
 
     setNumberOfProduct(numberOfProduct) {
-       let quantityProductElement =  this.getProductQuantity()
-        quantityProductElement.clear();
+        let quantityProductElement = this.getProductQuantity()
+        quantityProductElement.should('be.visible')
+        quantityProductElement.clear()
         quantityProductElement.type(numberOfProduct)
     }
 
@@ -51,22 +68,22 @@ class ProductPage {
 
     validateProductDetails(product) {
 
-    let productName = this.getProductName();
-      let productPrice = this.getProductPrice();
-      let productSize = this.getProductSize();
-      let productColor = this.getProductColor();
+        let productName = this.getProductName();
+        productName.should('be.visible').and('have.text', product.name);
+        let productPrice = this.getProductPrice();
+        productPrice.should('be.visible').and('have.text', product.price);
+    }
 
-        productName.should('have.text', product.name)
-        productPrice.should('have.text', product.price)
-        
-        productSize.should('be.visible');
-        productColor.should('be.visible');
+    configureItemsToCart(product) {
+        this.selectProductColor(product.color);
+        this.selectProductSize(product.size);
+        this.setNumberOfProduct(product.quantity);
     }
 
     validateProductAddedToCart() {
-       let successMessag =  cy.get(this.ObjectsPage.sucessMessage)
-       successMessag.should('be.visible')
-       successMessag.and('have.text', this.ObjectsPage.sucessMessage);
+        let successMessag = cy.contains(ObjectsPage.sucessMessage)
+        successMessag.should('be.visible')
+        successMessag.should('include.text', ObjectsPage.sucessMessage);
     }
 
 }
