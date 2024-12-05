@@ -38,7 +38,7 @@ describe('Product Feature', () => {
 
   })
 
-  it.only('should add a product to the cart', () => {
+  it('should add a product to the cart', () => {
     const productsTarget = {name:"Printed Summer Dress", price:"$29",size:"M",color:"Black",quantity:"2"}
     homePage.searchProduct(productsTarget.name);
     homePage.clickOnProduct(productsTarget.name);
