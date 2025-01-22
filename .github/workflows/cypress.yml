@@ -1,0 +1,20 @@
+name: Cypress Framework Node.js CI
+on:
+  pull_request:
+    branches: main
+jobs:
+  cypress:
+    name: 'Cypress Framework Node.js CI'
+    runs-on: ubuntu-latest
+    container:
+      image: "cypress/browsers:latest"
+      options: --user 1001
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: lts/*
+      - name: Install dependencies
+        run: npm ci
+      - name: Run Cypress Tests
+        run: npx cypress run
