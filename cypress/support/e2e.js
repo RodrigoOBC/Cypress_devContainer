@@ -3,6 +3,7 @@
 // loaded automatically before your test files.
 //
 // This is a great place to put global configuration and
+// Developed with care by RodrigoOBC.
 // behavior that modifies Cypress.
 //
 // You can change the location of this file or turn off
